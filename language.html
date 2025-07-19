@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learning App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 18px;
+        }
+
+        .hamburger-icon div {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+        }
+
+        /* Hidden by default, becomes visible when menu is toggled */
+        .menu-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            z-index: 999;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-container.show {
+            display: block;
+            transform: translateX(0);
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        .menu a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #444;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #4CAF50;
+        }
+
+        /* Content Section */
+        #content {
+            text-align: center;
+            margin-top: 50px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #content.show {
+            opacity: 1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* For dark theme */
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Language Learning App</h1>
+        <!-- Hamburger Menu (Positioned on the Left) -->
+        <button class="hamburger" onclick="toggleMenu()">
+            <div class="hamburger-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </button>
+    </header>
+
+    <!-- Menu -->
+    <div class="menu-container" id="menu">
+        <div class="menu">
+            <a href="javascript:void(0);" onclick="showHome()">Home</a>
+            <a href="javascript:void(0);" onclick="showLearn()">Learn</a>
+            <a href="javascript:void(0);" onclick="showQuiz()">Quiz</a>
+            <a href="javascript:void(0);" onclick="showLeaderboard()">Leaderboard</a>
+            <a href="javascript:void(0);" onclick="showCommunity()">Community</a>
+            <a href="javascript:void(0);" onclick="showSettings()">Settings</a>
+            <a href="javascript:void(0);" onclick="showHelpSupport()">Help & Support</a>
+            <a href="javascript:void(0);" onclick="showReviewFeedback()">Review & Feedback</a>
+        </div>
+    </div>
+
+    <div id="content">
+        <h2>Welcome to the Language Learning App!</h2>
+        <p>Start your journey to learning a new language. Choose from the options below:</p>
+        <button onclick="showLearn()">Learn</button>
+        <button onclick="showLeaderboard()">Leaderboard</button>
+        <button onclick="showQuiz()">Start Quiz</button>
+    </div>
+
+    <footer>&copy; 2024 Language Learning App</footer>
+
+    <script>
+        let currentLanguage = "English"; // Default Language
+        let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || {};
+        let feedbackStorage = JSON.parse(localStorage.getItem('feedbacks')) || [];
+
+        // Function to toggle menu visibility
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        // Function to transition content with smooth fade
+        function transitionContent(contentHtml) {
+            const contentDiv = document.getElementById("content");
+            contentDiv.classList.remove('show'); // Start fade-out
+            setTimeout(() => {
+                contentDiv.innerHTML = contentHtml; // Change content
+                contentDiv.classList.add('show'); // Start fade-in
+            }, 500); // Wait for the fade-out before changing content
+        }
+
+        // Home Screen
+        function showHome() {
+            transitionContent(`
+                <h2>Welcome to the Language Learning App!</h2>
+                <p>Start your journey to learning a new language. Choose from the options below:</p>
+                <button onclick="showLearn()">Learn</button><br><br>
+                <button onclick="showLeaderboard()">Leaderboard</button><br><br>
+                <button onclick="showQuiz()">Start Quiz</button>
+            `);
+        }
+
+        // Learn Tab
+        function showLearn() {
+            transitionContent(`
+                <h2>Learn</h2>
+                <button onclick="learnSpeaking()">Learn Speaking</button><br><br>
+                <button onclick="learnWriting()">Learn Writing</button><br><br>
+                <button onclick="learnListening()">Learn Listening</button><br><br>
+                <button onclick="learnReading()">Learn Reading</button><br><br>
+                <button onclick="showHome()">Back to Home</button>
+            `);
+        }
+
+        function learnSpeaking() {
+            alert("Learn Speaking Content");
+        }
+
+        function learnWriting() {
+            alert("Learn Writing Content");
+        }
+
+        function learnListening() {
+            alert("Learn Listening Content");
+        }
+
+        function learnReading() {
+            alert("Learn Reading Content");
+        }
+
+        // Quiz Tab
+        function showQuiz() {
+            transitionContent(`
+                <h2>Select a Quiz</h2>
+                <button onclick="startQuiz('Speaking')">Speaking Quiz</button><br><br>
+                <button onclick="startQuiz('Writing')">Writing Quiz</button><br><br>
+                <button onclick="startQuiz('Listening')">Listening Quiz</button><br><br>
+                <button onclick="startQuiz('Reading')">Reading Quiz</button><br><br>
+                <button onclick="showHome()">Back to Home</button>
+            `);
+        }
+
+        function startQuiz(type) {
+            let score = Math.floor(Math.random() * 100); // Random score for demonstration
+            leaderboard[type] = score;
+            localStorage.setItem('leaderboard', JSON.stringify(leaderboard)); // Save to localStorage
+            alert(`${type} Quiz Started! Your Score: ${score}`);
+            showLeaderboard();
+        }
+
+        // Leaderboard Screen
+        function showLeaderboard() {
+            transitionContent(`
+                <h2>Leaderboard</h2>
+                <h3>Speaking Score: ${leaderboard.speaking || 0}</h3>
+                <h3>Writing Score: ${leaderboard.writing || 0}</h3>
+                <h3>Listening Score: ${leaderboard.listening || 0}</h3>
+                <h3>Reading Score: ${leaderboard.reading || 0}</h3>
+                <button onclick="showHome()">Back to Home</button>
+            `);
+        }
+
+        // Community Screen
+        function showCommunity() {
+            transitionContent(`
+                <h2>Community Updates</h2>
+                <p>Latest community updates here...</p>
+                <h3>Language Updates</h3>
+                <p>New languages available for learning!</p>
+                <button onclick="showHome()">Back to Home</button>
+            `);
+        }
+
+        // Settings Tab
+        function showSettings() {
+            transitionContent(`
+                <h2>Settings</h2>
+                <button onclick="toggleTheme()">Toggle Theme (Dark/Light)</button><br><br>
+                <button onclick="toggleSound()">Toggle Sound</button><br><br>
+                <button onclick="toggleVibration()">Toggle Vibration</button><br><br>
+                <button onclick="toggleTouch()">Toggle Touch</button><br><br>
+                <button onclick="showHome()">Back to Home</button>
+            `);
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+            alert("Theme Toggled!");
+        }
+
+        function toggleSound() {
+            alert("Sound Toggled!");
+        }
+
+        function toggleVibration() {
+            alert("Vibration Toggled!");
+        }
+
+        function toggleTouch() {
+            alert("Touch Toggled!");
+        }
+
+        // Help & Support Screen
+        function showHelpSupport() {
+            transitionContent(`
+                <h2>Help & Support</h2>
+                <p>Company Information:</p>
+                <p>Name: Sam Pawar</p>
+                <p>Mobile Number: 7666586617</p>
+                <p>Email: munjabhaupawar99@gmail.com</p>
+                <button onclick="showHome()">Back to Home</button>
+            `);
+        }
+
+        // Review & Feedback Screen
+        function showReviewFeedback() {
+            transitionContent(`
+                <h2>Review & Feedback</h2>
+                <textarea placeholder="Type your feedback here"></textarea><br><br>
+                <button onclick="submitFeedback()">Submit Feedback</button><br><br>
+                <button onclick="showHome()">Back to Home</button>
+            `);
+        }
+
+        function submitFeedback() {
+            let feedback = document.querySelector('textarea').value;
+            if (feedback) {
+                feedbackStorage.push(feedback);
+                localStorage.setItem('feedbacks', JSON.stringify(feedbackStorage)); // Save feedback to localStorage
+                alert("Thank you for your feedback!");
+            } else {
+                alert("Please write some feedback before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>
