@@ -1,117 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smart Services | Booking System</title>
-  <meta name="description" content="Book waterproofing, plumbing, renovation, and repair services online with Smart Services. Get instant confirmation and professional support.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Services | Waterproofing, Plumbing & Renovation Booking</title>
+  <meta name="description" content="Book waterproofing, plumbing, and renovation services online. Get instant confirmation, professional experts, and trusted service at Smart Services."/>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      color: #333;
-    }
-    header {
-      background: #0078d7;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    nav {
-      background: #005fa3;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #0078d7;
-    }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#f8f8f8; }
+    header { background:#0077b6; color:#fff; padding:20px; text-align:center; }
+    header h1 { margin:0; }
+    nav { background:#023e8a; padding:10px; text-align:center; }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+
+    section { padding:40px 20px; max-width:900px; margin:auto; }
+    h2 { text-align:center; color:#023e8a; margin-bottom:20px; }
+
     /* Services */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .service-card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .service-card h3 {
-      margin-bottom: 10px;
-      color: #333;
-    }
+    .services { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+    .service-card { background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15); text-align:center; }
+    .service-card h3 { margin-top:0; color:#0077b6; }
+
     /* Contact */
-    .contact {
-      background: #f9f9f9;
-      padding: 50px 20px;
-    }
-    .contact-info {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 16px;
-    }
-    .contact .form-group {
-      margin-bottom: 15px;
-    }
-    .contact label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-    .contact input,
-    .contact select,
-    .contact textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    .btn-submit {
-      background: #0078d7;
-      color: #fff;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
-    .btn-submit:hover {
-      background: #005fa3;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #333;
-      color: white;
-    }
+    .contact-info { text-align:center; margin-bottom:20px; }
+    form { background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
+    .form-group { margin-bottom:15px; }
+    label { display:block; font-weight:bold; margin-bottom:5px; }
+    input, select, textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; }
+    button { background:#0077b6; color:#fff; border:none; padding:12px 20px; border-radius:4px; cursor:pointer; font-size:16px; }
+    button:hover { background:#023e8a; }
+    #form-status { text-align:center; margin-top:10px; font-weight:bold; }
+    
+    footer { background:#023e8a; color:#fff; text-align:center; padding:15px; margin-top:40px; }
   </style>
 </head>
 <body>
-
   <!-- Header -->
   <header>
     <h1>Smart Services</h1>
-    <p>Your trusted partner for Waterproofing, Plumbing & Renovation</p>
+    <p>Waterproofing | Plumbing | Renovation</p>
   </header>
 
   <!-- Navigation -->
@@ -124,9 +51,9 @@
   <!-- Home -->
   <section id="home">
     <h2>Welcome to Smart Services</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-      We provide expert home services including waterproofing, plumbing, renovation, painting, and more. 
-      Book online, get instant confirmation, and let our professionals handle the rest.
+    <p style="text-align:center;">
+      We provide trusted and professional services in <b>Waterproofing, Plumbing, and Renovation</b>. 
+      Book your service online and get instant confirmation with guaranteed quality.
     </p>
   </section>
 
@@ -136,112 +63,102 @@
     <div class="services">
       <div class="service-card">
         <h3>Waterproofing</h3>
-        <p>Protect your home from water damage with our advanced waterproofing solutions.</p>
+        <p>Protect your home from leaks and dampness with expert waterproofing solutions.</p>
       </div>
       <div class="service-card">
         <h3>Plumbing</h3>
-        <p>From repairs to new installations, our plumbers ensure leak-free service.</p>
+        <p>Reliable plumbing repairs, installations, and maintenance at your convenience.</p>
       </div>
       <div class="service-card">
         <h3>Renovation</h3>
-        <p>Upgrade your home with modern renovation and remodeling services.</p>
-      </div>
-      <div class="service-card">
-        <h3>Painting</h3>
-        <p>Refresh your walls with professional interior and exterior painting.</p>
-      </div>
-      <div class="service-card">
-        <h3>Electrical</h3>
-        <p>Safe and reliable electrical repair and installation services.</p>
+        <p>Upgrade your space with professional renovation and remodeling services.</p>
       </div>
     </div>
   </section>
 
- <!-- ✅ Contact & Booking Section -->
-<section id="contact" class="contact">
-  <h2>Contact & Booking</h2>
-  <p style="text-align:center;">Book a service with Smart Services. Fill out the form and we’ll get back to you shortly.</p>
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact & Booking</h2>
+    <p style="text-align:center;">Book a service with Smart Services. Fill out the form below.</p>
 
-  <!-- Contact Info -->
-  <div class="contact-info">
-    <p><strong>Email:</strong> munjabhaupawar99@gmail.com</p>
-    <p><strong>Phone:</strong> +91 76665 86617</p>
-    <p><strong>Address:</strong> Pune, Maharashtra, India</p>
-  </div>
-
-  <!-- Booking Form -->
-  <form id="bookingForm" action="https://formsubmit.co/munjabhaupawar99@gmail.com" method="POST">
-    <!-- Hidden Fields -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
-
-    <!-- Auto-response with booking details -->
-    <input type="hidden" name="_autoresponse" value="
-Thank you for booking with Smart Services!
-
-Here are your booking details:
---------------------------------
-Name: {name}
-Phone: {phone}
-Service: {service}
-Date: {date}
-Time: {time}
---------------------------------
-
-Our team will contact you soon.
-– Smart Services
-">
-
-    <!-- Form Fields -->
-    <div class="form-group">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <div class="contact-info">
+      <p><strong>Email:</strong> munjabhaupawar99@gmail.com</p>
+      <p><strong>Phone:</strong> +91 76665 86617</p>
+      <p><strong>Address:</strong> Pune, Maharashtra, India</p>
     </div>
 
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
-    </div>
+    <!-- Booking Form -->
+    <form id="bookingForm" method="POST">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+      </div>
 
-    <div class="form-group">
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
-    </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
 
-    <div class="form-group">
-      <label for="service">Select Service</label>
-      <select id="service" name="service" required>
-        <option value="">-- Choose a Service --</option>
-        <option value="Waterproofing">Waterproofing</option>
-        <option value="Plumbing">Plumbing</option>
-        <option value="Renovation">Renovation</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
+      </div>
 
-    <div class="form-group">
-      <label for="date">Preferred Date</label>
-      <input type="date" id="date" name="date" required>
-    </div>
+      <div class="form-group">
+        <label for="service">Select Service</label>
+        <select id="service" name="service" required>
+          <option value="">-- Choose a Service --</option>
+          <option value="Waterproofing">Waterproofing</option>
+          <option value="Plumbing">Plumbing</option>
+          <option value="Renovation">Renovation</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="time">Preferred Time</label>
-      <input type="time" id="time" name="time" required>
-    </div>
+      <div class="form-group">
+        <label for="date">Preferred Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
 
-    <div class="form-group">
-      <label for="message">Additional Details</label>
-      <textarea id="message" name="message" rows="4" placeholder="Describe your problem..."></textarea>
-    </div>
+      <div class="form-group">
+        <label for="time">Preferred Time</label>
+        <input type="time" id="time" name="time" required>
+      </div>
 
-    <button type="submit" class="btn-submit">Book Now</button>
-  </form>
-</section>
+      <div class="form-group">
+        <label for="message">Additional Details</label>
+        <textarea id="message" name="message" rows="4" placeholder="Describe your problem..."></textarea>
+      </div>
+
+      <button type="submit">Book Now</button>
+    </form>
+
+    <p id="form-status"></p>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>Thankyou for visiting smart services .</p>
+    <p>&copy; 2025 Smart Services | All Rights Reserved</p>
   </footer>
 
+  <!-- Script for Google Apps Script -->
+  <script>
+    const scriptURL = "YOUR_GOOGLE_APPS_SCRIPT_URL"; // Replace with your script URL
+    const form = document.getElementById("bookingForm");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: "POST", body: new FormData(form)})
+        .then(() => {
+          status.innerText = "✅ Booking submitted successfully! Please check your email for confirmation.";
+          status.style.color = "green";
+          form.reset();
+        })
+        .catch(() => {
+          status.innerText = "❌ Something went wrong. Please try again.";
+          status.style.color = "red";
+        });
+    });
+  </script>
 </body>
 </html>
