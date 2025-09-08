@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Services | Waterproofing, Plumbing & Renovation Booking</title>
+  <meta name="description" content="Book waterproofing, plumbing, and renovation services online. Get instant email confirmation, professional experts, and trusted service at Smart Services."/>
+  <meta name="keywords" content="waterproofing services, plumbing repair, tile renovation, home services booking, instant booking"/>
+  <meta name="author" content="Smart Services"/>
+  <style>
+    /* ---------- Global Styles ---------- */
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background: #0077b6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffd60a; }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+      animation: fadeIn 1s ease;
+    }
+    h1, h2 {
+      color: #0077b6;
+    }
+    button, .btn {
+      display: inline-block;
+      background: #0077b6;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: 0.3s;
+    }
+    button:hover, .btn:hover {
+      background: #005f87;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    section { display: none; }
+    section.active { display: block; }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1500&q=80') no-repeat center/cover;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      animation: fadeIn 1.2s ease;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p { font-size: 1.2rem; }
+
+    /* ---------- Services Cards ---------- */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    /* ---------- Contact Form ---------- */
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    /* ---------- Animations ---------- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- ---------- Navbar ---------- -->
+  <nav>
+    <div style="color:white; font-weight:bold;">Smart Services</div>
+    <div>
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('services')">Services</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+    </div>
+  </nav>
+
+  
+  <!-- ---------- Home ---------- -->
+<section id="home" class="active">
+  <div class="hero">
+    <h1>Smart Services at Your Doorstep</h1>
+    <p>Book waterproofing, plumbing, painting, and renovation services online. Trusted by hundreds of homeowners and businesses for reliable, affordable solutions.</p>
+    <a href="#" class="btn" onclick="showPage('services')">Explore Services</a>
+  </div>
+
+  <div class="container">
+    <!-- Why Choose Us -->
+    <h2>Why Choose Smart Services?</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:1.5rem;">
+      <div style="background:#fff; padding:1rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+        <h3>✔ Quick Booking</h3>
+        <p>Book services in just a few clicks with instant email confirmation.</p>
+      </div>
+      <div style="background:#fff; padding:1rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+        <h3>✔ Professional Experts</h3>
+        <p>Experienced technicians with proven track records and reliable results.</p>
+      </div>
+      <div style="background:#fff; padding:1rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+        <h3>✔ Transparent Pricing</h3>
+        <p>No hidden costs. Upfront pricing for every service.</p>
+      </div>
+      <div style="background:#fff; padding:1rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+        <h3>✔ Trusted by 500+ Clients</h3>
+        <p>Our happy customers across Pune and nearby areas rely on us repeatedly.</p>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <h2 style="margin-top:3rem;">How It Works</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:1.5rem; text-align:center;">
+      <div>
+        <img src="https://img.icons8.com/color/96/booking.png" alt="Book Service" style="width:80px;">
+        <h3>1. Book Online</h3>
+        <p>Select your service, date, and time — all in a few clicks.</p>
+      </div>
+      <div>
+        <img src="https://img.icons8.com/color/96/handyman.png" alt="Service Expert" style="width:80px;">
+        <h3>2. Get Experts</h3>
+        <p>Our verified professionals arrive on time and fully equipped.</p>
+      </div>
+      <div>
+        <img src="https://img.icons8.com/color/96/ok--v1.png" alt="Work Completed" style="width:80px;">
+        <h3>3. Enjoy Peace of Mind</h3>
+        <p>Relax while we fix, repair, or upgrade your space with quality service.</p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <h2 style="margin-top:3rem;">What Our Clients Say</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:1.5rem;">
+      <div style="background:#fff; padding:1.2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <p>“Smart Services waterproofed our basement quickly and professionally. No more leaks during monsoon!”</p>
+        <strong>- Rahul, Pune</strong>
+      </div>
+      <div style="background:#fff; padding:1.2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <p>“Excellent plumbing service. The team was punctual, polite, and solved the issue in one visit.”</p>
+        <strong>- Neha, Aundh</strong>
+      </div>
+      <div style="background:#fff; padding:1.2rem; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <p>“Affordable pricing and professional tile renovation. Our kitchen looks brand new now.”</p>
+        <strong>- Suresh, Baner</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ 
+  <!-- ---------- About ---------- -->
+<section id="about">
+  <div class="container">
+    <h1>About Us</h1>
+    <p><strong>Smart Services</strong> is your trusted partner for home and office maintenance. We specialize in waterproofing, plumbing, and renovation services, ensuring your property stays safe, comfortable, and stylish.</p>
+    
+    <h2>Our Mission</h2>
+    <p>Our mission is simple: to make booking essential services quick, transparent, and reliable. With instant email confirmations and professional experts, we take the stress out of home care.</p>
+    
+    <h2>Why We’re Different</h2>
+    <ul>
+      <li>✔ <strong>Expert Team</strong> – Skilled professionals with years of hands-on experience.</li>
+      <li>✔ <strong>Quality Materials</strong> – We use only trusted brands and long-lasting solutions.</li>
+      <li>✔ <strong>Transparent Pricing</strong> – No hidden costs, no surprises.</li>
+      <li>✔ <strong>Customer First</strong> – 24/7 support and quick response times.</li>
+    </ul>
+    
+    <h2>Our Experience</h2>
+    <p>With over <strong>10 years of service</strong> and more than <strong>500 satisfied clients</strong>, Smart Services has built a reputation for excellence. From small plumbing fixes to large-scale waterproofing projects, we’ve done it all.</p>
+    
+    <h2>Our Promise</h2>
+    <p>We promise to deliver professional results, on time and within budget. Your satisfaction is our top priority, and we work hard to ensure every project meets the highest standards of quality and safety.</p>
+  </div>
+</section>
+
+
+  <!-- ---------- Services ---------- -->
+ <!-- ---------- Services ---------- -->
+<section id="services">
+  <div class="container">
+    <h1>Our Services</h1>
+    <p>At <strong>Smart Services</strong>, we provide reliable solutions for your home and business. From waterproofing to plumbing, our expert team ensures lasting results with professional care.</p>
+
+    <div class="services">
+      <!-- Waterproofing -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581093588401-22c0dbf1a7a6?auto=format&fit=crop&w=800&q=80" alt="Waterproofing Service">
+        <h2>Waterproofing</h2>
+        <p>Protect your property from water damage with advanced waterproofing solutions for roofs, walls, and basements.</p>
+        <a href="#" class="btn" onclick="showPage('contact')">Book Now</a>
+      </div>
+
+      <!-- Plumbing -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=800&q=80" alt="Plumbing Service">
+        <h2>Plumbing</h2>
+        <p>Fast, efficient plumbing repairs and installations. From leaky taps to major pipeline work, we handle it all.</p>
+        <a href="#" class="btn" onclick="showPage('contact')">Book Now</a>
+      </div>
+
+      <!-- Tile Renovation -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80" alt="Tile Renovation Service">
+        <h2>Tile Renovation</h2>
+        <p>Upgrade your kitchen, bathroom, or living spaces with stylish, durable tile designs installed by professionals.</p>
+        <a href="#" class="btn" onclick="showPage('contact')">Book Now</a>
+      </div>
+
+      <!-- Painting -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80" alt="Painting Service">
+        <h2>Painting</h2>
+        <p>Give your interiors and exteriors a fresh look with our professional painting services using premium quality paints.</p>
+        <a href="#" class="btn" onclick="showPage('contact')">Book Now</a>
+      </div>
+
+      <!-- Electrical Repairs -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581092334714-1c3b68f3f6b1?auto=format&fit=crop&w=800&q=80" alt="Electrical Repair Service">
+        <h2>Electrical Repairs</h2>
+        <p>Ensure safety and functionality with expert electrical repair, wiring, and appliance installation services.</p>
+        <a href="#" class="btn" onclick="showPage('contact')">Book Now</a>
+      </div>
+
+      <!-- Renovation -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80" alt="Home Renovation Service">
+        <h2>Home Renovation</h2>
+        <p>Transform your living space with complete renovation services tailored to your style and budget.</p>
+        <a href="#" class="btn" onclick="showPage('contact')">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ---------- Contact ---------- -->
+<!-- ---------- Contact ---------- -->
+<section id="contact">
+  <div class="container">
+    <h1>Book a Service</h1>
+    <form id="bookingForm" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="">
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="2" required placeholder="House/Flat No, Street, Area, City"></textarea>
+
+      <label for="service">Select Service</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choose a service --</option>
+        <option value="Waterproofing">Waterproofing</option>
+        <option value="Plumbing">Plumbing</option>
+        <option value="Tile Renovation">Tile Renovation</option>
+        <option value="Painting">Painting</option>
+        <option value="Electrical Repair">Electrical Repair</option>
+        <option value="Home Renovation">Home Renovation</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="date">Preferred Date (next 7 days)</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Available Time Slots</label>
+      <select id="time" name="time" required>
+        <option value="">-- Select Date First --</option>
+      </select>
+
+      <label for="message">Additional Notes</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+
+      <button type="submit">Book Now</button>
+    </form>
+    <div class="success-message" id="successMessage">
+      ✅ Your booking has been sent. We will contact you shortly!
+    </div>
+  </div>
+</section>
+
+<script>
+  // Limit date picker to next 7 days
+  const dateInput = document.getElementById("date");
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, "0");
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const yyyy = today.getFullYear();
+  const todayStr = `${yyyy}-${mm}-${dd}`;
+  dateInput.min = todayStr;
+
+  const maxDate = new Date();
+  maxDate.setDate(today.getDate() + 7);
+  const ddMax = String(maxDate.getDate()).padStart(2, "0");
+  const mmMax = String(maxDate.getMonth() + 1).padStart(2, "0");
+  const yyyyMax = maxDate.getFullYear();
+  dateInput.max = `${yyyyMax}-${mmMax}-${ddMax}`;
+
+  // Example availability (slots already booked removed)
+  const availability = {
+    "09:00 AM - 11:00 AM": true,
+    "11:00 AM - 01:00 PM": true,
+    "02:00 PM - 04:00 PM": true,
+    "04:00 PM - 06:00 PM": true,
+    "06:00 PM - 08:00 PM": true
+  };
+
+  // Demo booked slots (simulate already booked slots)
+  const bookedSlots = {
+    // Format: "YYYY-MM-DD": ["slot1", "slot2"]
+    "2025-09-08": ["11:00 AM - 01:00 PM", "04:00 PM - 06:00 PM"],
+    "2025-09-09": ["02:00 PM - 04:00 PM"]
+  };
+
+  const timeSelect = document.getElementById("time");
+
+  dateInput.addEventListener("change", function () {
+    const chosenDate = this.value;
+    timeSelect.innerHTML = "";
+
+    if (!chosenDate) {
+      timeSelect.innerHTML = '<option value="">-- Select Date First --</option>';
+      return;
+    }
+
+    const booked = bookedSlots[chosenDate] || [];
+
+    let availableCount = 0;
+    for (let slot in availability) {
+      if (availability[slot] && !booked.includes(slot)) {
+        const option = document.createElement("option");
+        option.value = slot;
+        option.textContent = slot;
+        timeSelect.appendChild(option);
+        availableCount++;
+      }
+    }
+
+    if (availableCount === 0) {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = "No slots available for this day";
+      timeSelect.appendChild(option);
+    }
+  });
+</script>
+
+
+  <!-- ---------- Footer ---------- -->
+  <footer>
+    <p>&copy; 2025 Smart Services. All rights reserved.</p>
+  </footer>
+
+  <!-- ---------- Schema for SEO ---------- -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Smart Services",
+    "description": "Professional waterproofing, plumbing, and renovation services with online booking.",
+    "url": "https://yourwebsite.com",
+    "logo": "https://yourwebsite.com/logo.png",
+    "sameAs": ["https://facebook.com","https://instagram.com"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Service Street",
+      "addressLocality": "Pune",
+      "addressRegion": "MH",
+      "postalCode": "411001",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-9876543210"
+  }
+  </script>
+
+  <!-- ---------- Scripts ---------- -->
+  <script>
+    // Page navigation
+    function showPage(pageId) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+      window.scrollTo(0, 0);
+    }
+
+    // Booking form confirmation
+    const form = document.getElementById("bookingForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function() {
+      setTimeout(() => {
+        form.reset();
+        successMessage.style.display = "block";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
