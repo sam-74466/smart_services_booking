@@ -110,35 +110,53 @@
       margin-bottom: 1rem;
     }
 
-    /* ---------- Contact Form ---------- */
-    form {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: auto;
-    }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 0.7rem;
-      margin-top: 0.3rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .success-message {
-      display: none;
-      text-align: center;
-      color: green;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
+   <!-- ✅ Basic Styling -->
 
+  .contact {
+    padding: 50px 20px;
+    background: #f9f9f9;
+  }
+  .contact h2 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .contact-info {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+  .contact .form-group {
+    margin-bottom: 15px;
+  }
+  .contact label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .contact input, 
+  .contact select, 
+  .contact textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .btn-submit {
+    background: #0078d7;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  .btn-submit:hover {
+    background: #005fa3;
+  }
+</style>
     /* ---------- Animations ---------- */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -316,54 +334,80 @@
 </section>
 
   <!-- ---------- Contact ---------- -->
-<!-- ---------- Contact ---------- -->
-<section id="contact">
+<!-- ✅ Contact Section -->
+<section id="contact" class="contact">
   <div class="container">
-    <h1>Book a Service</h1>
-    <form id="bookingForm" action="https://formsubmit.co/munjabhaupawar99@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="">
+    <h2>Contact & Booking</h2>
+    <p>Book a service with Smart Services. Fill out the form and we’ll get back to you shortly.</p>
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required>
-
-      <label for="address">Address</label>
-      <textarea id="address" name="address" rows="2" required placeholder="House/Flat No, Street, Area, City"></textarea>
-
-      <label for="service">Select Service</label>
-      <select id="service" name="service" required>
-        <option value="">-- Choose a service --</option>
-        <option value="Waterproofing">Waterproofing</option>
-        <option value="Plumbing">Plumbing</option>
-        <option value="Tile Renovation">Tile Renovation</option>
-        <option value="Painting">Painting</option>
-        <option value="Electrical Repair">Electrical Repair</option>
-        <option value="Home Renovation">Home Renovation</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <label for="date">Preferred Date (next 7 days)</label>
-      <input type="date" id="date" name="date" required>
-
-      <label for="time">Available Time Slots</label>
-      <select id="time" name="time" required>
-        <option value="">-- Select Date First --</option>
-      </select>
-
-      <label for="message">Additional Notes</label>
-      <textarea id="message" name="message" rows="3"></textarea>
-
-      <button type="submit">Book Now</button>
-    </form>
-    <div class="success-message" id="successMessage">
-      ✅ Your booking has been sent. We will contact you shortly!
+    <div class="contact-info">
+      <p><strong>Email:</strong> munjabhaupawar99@gmail.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Address:</strong> Pune, Maharashtra, India</p>
     </div>
+
+    <form id="bookingForm" action="https://formsubmit.co/munjabhaupawar99@gmail.com" method="POST">
+      <!-- FormSubmit hidden fields -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+      <input type="hidden" name="_autoresponse" value="✅ Thank you for booking with Smart Services! 
+We’ve received your request and our team will contact you soon.">
+
+      <!-- Form Fields -->
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="2" required placeholder="House/Flat No, Street, Area, City"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Select Service</label>
+        <select id="service" name="service" required>
+          <option value="">-- Choose a service --</option>
+          <option value="Waterproofing">Waterproofing</option>
+          <option value="Plumbing">Plumbing</option>
+          <option value="Tile Renovation">Tile Renovation</option>
+          <option value="Painting">Painting</option>
+          <option value="Electrical Repair">Electrical Repair</option>
+          <option value="Home Renovation">Home Renovation</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Preferred Date (next 7 days)</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="time">Available Time Slots</label>
+        <select id="time" name="time" required>
+          <option value="">-- Select Date First --</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Additional Notes</label>
+        <textarea id="message" name="message" rows="3"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Book Now</button>
+    </form>
   </div>
 </section>
 
