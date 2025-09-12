@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Smart Services | Our Services</title>
+  <meta name="description" content="Explore Quick Smart Services – waterproofing, plumbing, renovation, painting, and electrical services."/>
+  <meta name="keywords" content="Quick Smart Services, waterproofing, plumbing, renovation, home services"/>
+  <meta name="author" content="Quick Smart Services"/>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background: #0077b6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffd60a; }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+      animation: fadeIn 1s ease;
+    }
+    h1, h2 { color: #0077b6; }
+    button, .btn {
+      display: inline-block;
+      background: #0077b6;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: 0.3s;
+    }
+    button:hover, .btn:hover { background: #005f87; }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    /* Services Cards */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width:600px){ nav { padding: 0.6rem 1rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div style="color:white; font-weight:bold;">Quick Smart Services</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>At <strong>Quick Smart Services</strong>, we provide reliable solutions for your home and business. From waterproofing to plumbing, our expert team ensures lasting results with professional care.</p>
+
+      <div class="services">
+        <!-- Waterproofing -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1581093588401-22c0dbf1a7a6?auto=format&fit=crop&w=800&q=80" alt="Waterproofing Service">
+          <h2>Waterproofing</h2>
+          <p>Protect your property from water damage with advanced waterproofing solutions for roofs, walls, and basements.</p>
+          <a href="contact.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- Plumbing -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=800&q=80" alt="Plumbing Service">
+          <h2>Plumbing</h2>
+          <p>Fast, efficient plumbing repairs and installations. From leaky taps to major pipeline work, we handle it all.</p>
+          <a href="contact.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- Tile Renovation -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80" alt="Tile Renovation Service">
+          <h2>Tile Renovation</h2>
+          <p>Upgrade your kitchen, bathroom, or living spaces with stylish, durable tile designs installed by professionals.</p>
+          <a href="contact.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- Painting -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80" alt="Painting Service">
+          <h2>Painting</h2>
+          <p>Give your interiors and exteriors a fresh look with our professional painting services using premium quality paints.</p>
+          <a href="contact.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- Electrical Repairs -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1581092334714-1c3b68f3f6b1?auto=format&fit=crop&w=800&q=80" alt="Electrical Repair Service">
+          <h2>Electrical Repairs</h2>
+          <p>Ensure safety and functionality with expert electrical repair, wiring, and appliance installation services.</p>
+          <a href="contact.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- Renovation -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80" alt="Home Renovation Service">
+          <h2>Home Renovation</h2>
+          <p>Transform your living space with complete renovation services tailored to your style and budget.</p>
+          <a href="contact.html" class="btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Quick Smart Services. All rights reserved.
+  </footer>
+
+</body>
+</html>
