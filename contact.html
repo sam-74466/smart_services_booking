@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Smart Services | Contact</title>
+  <meta name="description" content="Book a service with Quick Smart Services online. Waterproofing, plumbing, renovation, and more."/>
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:#f4f6f9;color:#333;}
+    nav{background:#0077b6;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;position:sticky;top:0;z-index:1000;}
+    nav a{color:white;text-decoration:none;margin:0 1rem;font-weight:600;transition:0.3s;}
+    nav a:hover{color:#ffd60a;}
+    .container{max-width:600px;margin:auto;padding:2rem;}
+    h1,h2{color:#0077b6;text-align:center;}
+    form{background:white;padding:2rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+    label{display:block;margin-top:1rem;font-weight:bold;}
+    input,select,textarea{width:100%;padding:.7rem;margin-top:.3rem;border:1px solid #ccc;border-radius:5px;}
+    .success-message{display:none;text-align:center;color:green;font-weight:bold;margin-top:1rem;}
+    button,.btn{display:inline-block;background:#0077b6;color:white;padding:.7rem 1.2rem;border-radius:5px;text-decoration:none;transition:.3s;margin-top:1rem;}
+    button:hover,.btn:hover{background:#005f87;}
+    footer{text-align:center;padding:1rem;background:#333;color:#fff;margin-top:2rem;}
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="color:white;font-weight:bold;">Quick Smart Services</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+     
+    </div>
+  </nav>
+
+  <section class="container">
+    <h1>Book a Service</h1>
+    <form id="bookingForm">
+      <label for="name">Full Name</label><input type="text" id="name" name="name" required>
+      <label for="email">Email Address</label><input type="email" id="email" name="email" required>
+      <label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" required>
+      <label for="address">Address</label><textarea id="address" name="address" rows="2" required></textarea>
+      <label for="service">Select Service</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choose a service --</option>
+        <option value="Waterproofing">Waterproofing</option>
+        <option value="Plumbing">Plumbing</option>
+        <option value="Tile Renovation">Tile Renovation</option>
+        <option value="Painting">Painting</option>
+        <option value="Electrical Repair">Electrical Repair</option>
+        <option value="Home Renovation">Home Renovation</option>
+        <option value="Other">Other</option>
+      </select>
+      <label for="date">Preferred Date</label><input type="date" id="date" name="date" required>
+      <label for="time">Available Time Slots</label>
+      <select id="time" name="time" required><option value="">-- Select Date First --</option></select>
+      <label for="message">Additional Notes</label><textarea id="message" name="message" rows="3"></textarea>
+      <button type="submit">Book Now</button>
+    </form>
+    <div class="success-message" id="successMessage">✅ Your booking has been sent. Check your email for confirmation!</div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Quick Smart Services. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Limit date to next 7 days
+    const dateInput = document.getElementById("date");
+    const today = new Date();
+    dateInput.min = today.toISOString().split("T")[0];
+    const maxDate = new Date();
+    maxDate.setDate(today.getDate() + 7);
+    dateInput.max = maxDate.toISOString().split("T")[0];
+
+    // Time slots
+    const availability = {
+      "09:00 AM - 11:00 AM": true,
+      "11:00 AM - 01:00 PM": true,
+      "02:00 PM - 04:00 PM": true,
+      "04:00 PM - 06:00 PM": true,
+      "06:00 PM - 08:00 PM": true
+    };
+    const bookedSlots = {}; // replace with live booked slots if needed
+    const timeSelect = document.getElementById("time");
+    dateInput.addEventListener("change", function() {
+      const chosenDate = this.value;
+      timeSelect.innerHTML = "";
+      const booked = bookedSlots[chosenDate] || [];
+      let availableCount=0;
+      for(let slot in availability){
+        if(availability[slot] && !booked.includes(slot)){
+          const option = document.createElement("option");
+          option.value=slot;
+          option.textContent=slot;
+          timeSelect.appendChild(option);
+          availableCount++;
+        }
+      }
+      if(availableCount===0){
+        const option = document.createElement("option");
+        option.value="";
+        option.textContent="No slots available";
+        timeSelect.appendChild(option);
+      }
+    });
+
+    // Google Apps Script URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxH16eox8hN8gDtebZYIYYautPl-eWHbiHMVHr350AmCRozlsIvV454GT9U3MJWFYqN/exec";
+    const form = document.getElementById("bookingForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", e=>{
+      e.preventDefault();
+      if(!dateInput.value || !timeSelect.value){
+        alert("Please select date and time slot.");
+        return;
+      }
+      fetch(scriptURL,{method:"POST",body:new FormData(form)})
+      .then(response=>{
+        if(response.ok){
+          form.reset();
+          successMessage.style.display="block";
+        }else{
+          response.text().then(t=>alert("Server error: "+t));
+        }
+      })
+      .catch(err=>alert("Request failed: "+err.message));
+    });
+  </script>
+</body>
+</html>
